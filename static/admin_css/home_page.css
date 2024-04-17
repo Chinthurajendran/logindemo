@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.button{
+    position: relative;
+    width: 140px;
+    height: 50px;
+    background-color:#ea4c88;
+    border-color:#ea4c88;
+    color:white;
+    border: none;
+    outline: none;
+    font-weight:bolder;
+    font-size: medium;
+    border-radius: 4px;
+    margin-left: 90%;
+    margin-top: 16px;
+    top: -69px;
+
+}
+.button:hover{
+    background-color: #d44179;
+}
+.user_name{
+    font-weight: bolder;
+}
+.table{
+    text-align: center;
+    margin-left: 10%;
+    width: 80%;
+}
+.admin_info{
+    font-size: xx-large;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+}
+.create_button{
+    width: 80%;
+    border: none;
+    outline: none;
+    font-weight:bolder;
+    font-size: x-large;
+    border-radius: 4px;
+    background-color:#2452f4;
+    margin-left: 10%;
+    margin-bottom: 1%;
+}

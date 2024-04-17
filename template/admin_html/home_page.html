@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'admin_css/home_page.css' %}">
+    <title>SIGN OUT</title>
+</head>
+<body style="background-color:#2c3338;">
+   <div class="main">
+            <div class="header">
+                <p class="admin_info">ADMIN INFO</p>
+                <div class="form__field">
+
+                    <nav class="navbar navbar-light bg-light" style="margin-top: 15px; text-align: center;">
+                        <form class="form-inline" method="get" action="/admin_search">
+                            {% csrf_token %}
+                          <input class="form-control mr-sm-2"  style="width: 400px;height: 60px; border-radius: 5px;font-size:x-large;outline: none;border: none;" type="search" placeholder="Search"  name="search" aria-label="Search">
+                          <button class="btn btn-outline-success my-2 my-sm-0" style="width: 90px;height: 60px; border-radius: 5px;font-size:x-large;outline: none;border: none "  type="submit">Search</button>
+                        </form>
+                      </nav>
+                    <a href="admin_logout"><button type="submit" class="button">SIGN OUT</button></a>
+                </div>
+                <div class="data">
+                    <a href="admin_create"><button type="submit" class="create_button">CREATE  ID</button></a>
+                    <style> th {padding-left: 20px;}</style>
+                    <table class="table">
+                        <tr style="background-color: white;font-size: xx-large;">
+                            <th style="border-radius: 5px;" >NO</th>
+                            <th style="border-radius: 5px;">USERNAME</th>
+                            <th style="border-radius: 5px;">EAMIL ID</th>
+                            <th style="border-radius: 5px;">PASSWORD</th>
+                            <th style="border-radius: 5px;">EDIT</th>
+                            <th style="border-radius: 5px;">DELETE</th>
+                        </tr>
+                        {% for items in data %}
+                        <tr style="font-size: x-large;">
+                            
+                            <td style="padding-top: 10px;padding-bottom: 10px;background-color: white;border-radius: 5px;">{{items.id}}</td>
+                            <td style="padding-top: 10px;padding-bottom: 10px;background-color: white;border-radius: 5px;">{{items.username}}</td>
+                            <td style="padding-top: 10px;padding-bottom: 10px;background-color: white;border-radius: 5px;">{{items.email}}</td>
+                            <td style="padding-top: 10px;padding-bottom: 10px;background-color: white;border-radius: 5px;">{{items.password}}</td>
+                            <td style="padding-top: 10px;padding-bottom: 10px;background-color: white;border-radius: 5px;"><a href="{% url 'admin_edit' items.id %}"><button type="submit" class="table-button" style="background-color:#276738;outline: none;border: none;font-size: x-large;border-radius: 5px;;" >Edit</button></a></td>
+                            <td style="padding-top: 10px;padding-bottom: 10px;background-color: white;border-radius: 5px;"><a href="{% url 'admin_delete' items.id %}"><button type="submit" class="table-button" style="background-color:#82313b ;outline: none;border: none;font-size: x-large;border-radius: 5px;">Delete</button></a></td>
+
+                        </tr>
+                        {% endfor %}    
+                    </table>
+            </div>
+            
+   </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page with Username and Password Example</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"><link rel="stylesheet" href="{% static 'log_css/login_page.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body class="align">
+  <p style="font-size: large;">User login</p>
+  <div class="grid">
+
+    <form method="POST" class="form login">
+      {% csrf_token %}
+      <div class="form__field">
+        <label for="login__username"><span class="hidden">Username</span></label>
+        <input id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+      </div>
+
+      <div class="form__field">
+        <label for="login__password"><span class="hidden">Password</span></label>
+        <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+      </div>
+
+      <div class="form__field">
+        <input type="submit" value="Sign In">
+      </div>
+
+    </form>
+    {% for msg in messages %}
+    <p style="margin-top: 20px;color: red;font-size:large;margin-left: 20px;margin-bottom: -21px;font-weight: 600;">{{msg}}</p>
+    {% endfor %}
+    <p class="text--center">Not a member? <a href="signup">Sign up now</a>/<a href="admin_login">Admin login</a></p>
+
+  </div>
+
+
+
+</body>
+<!-- partial -->
+  
+</body>
+</html>
